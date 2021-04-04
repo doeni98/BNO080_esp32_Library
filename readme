@@ -1,0 +1,13 @@
+# BNO080 lib for ESP-IDF
+
+original code : https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library
+
+Contains adaptation classes for `SerialPrint` and i2c functions. Functions like `pinmode` or `delay` where replaced by null-functions.
+
+## Modification based on the original library
+
+in the `SparkFun_BNO80_Arduino_Library.h` file I added some includes and typedefs. Those should be the only lines that i touched in the original library source code.
+
+## Disclaimer
+
+The example main.cpp is the only thing that I tested :) All the other library features haven't been tested.  

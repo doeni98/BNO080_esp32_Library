@@ -24,10 +24,6 @@
 
 #include "SparkFun_BNO080_Arduino_Library.h"
 
-void digitalWrite(uint8_t, int){}
-uint8_t digitalRead(uint8_t){return 0;}
-void pinMode(uint8_t, int){}
-void delay(unsigned long){}
 
 //Attempt communication with the device
 //Return true if we got a 'Polo' back from Marco
@@ -196,8 +192,7 @@ uint16_t BNO080::getReadings(void)
 			return 0;
 	}
 
-	bool ret = receivePacket();
-	if (ret == true)
+	if (receivePacket() == true)
 	{
 		//Check to see if this packet is a sensor reporting its data to us
 		if (shtpHeader[2] == CHANNEL_REPORTS && shtpData[0] == SHTP_REPORT_BASE_TIMESTAMP)
@@ -1445,11 +1440,11 @@ boolean BNO080::receivePacket(void)
 		//This bit indicates if this package is a continuation of the last. Ignore it for now.
 		//TODO catch this as an error and exit
 
-		if (_printDebug == true)
-		{
-			_debugPort->print(F("receivePacket (I2C): dataLength is: "));
-			_debugPort->println(dataLength);
-		}
+		// if (_printDebug == true)
+		// {
+		//		_debugPort->print(F("receivePacket (I2C): dataLength is: "));
+		//		_debugPort->println(dataLength);
+		// }
 
 		if (dataLength == 0)
 		{
