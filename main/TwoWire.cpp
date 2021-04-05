@@ -45,7 +45,6 @@ unsigned int TwoWire::available(){
 }
 
 int TwoWire::requestFrom(uint8_t deviceAddress, std::size_t bytes){
-
     /* Reset oreceiveBuffer_counter out */
     receiveBuffer_counter_out = 0;
 

@@ -1426,7 +1426,6 @@ boolean BNO080::receivePacket(void)
 		uint8_t channelNumber = _i2cPort->read();
 		uint8_t sequenceNumber = _i2cPort->read(); //Not sure if we need to store this or not
 
-		printf("====%d\n", ret);
 		//Store the header info.
 		shtpHeader[0] = packetLSB;
 		shtpHeader[1] = packetMSB;

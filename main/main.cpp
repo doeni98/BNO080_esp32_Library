@@ -19,30 +19,17 @@ extern "C" {
 
 void app_main(void){
     int ret;
-    printf("hello world\n");
+    printf("hello--world\n");
 
-
-
-    /* while (1){
-         vTaskDelay(10000 / portTICK_PERIOD_MS);
-         Wire.beginTransmission(0x4b);
-         Wire.write(0xF);
-         ret = Wire.endTransmission();
-         printf("End Transmission ret=%d\n", ret);
-         while(1);
-     }*/
 
     BNO080 myIMU;
+    myIMU.enableDebugging(Serial);
+
     ret = myIMU.begin();
     if(!ret){
         printf("IMU is not ready! %d\n", ret);
         while(1);
     }
-
-    /* TODO Set i2c clock to 400khz*/
-
-
-    /* Send data update every 50ms */
 
     printf("Output in form i, j, k, real, accuracy");
 
